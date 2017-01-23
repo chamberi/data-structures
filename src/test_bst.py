@@ -178,11 +178,9 @@ def test_balance():
 
 
 def test_in_order_traversal_with_generator_first_node_traversed_is_1(filled_bst):
-    """In-order traversal will start with 1. """
-    in_order_list = []
-    import pdb; pdb.set_trace()
-    [x for x in filled_bst.in_order()]
-    assert in_order_list == [1, 2, 3, 4, 5, 6]
+    """In-order traversal will fill a list in order."""
+    results = [x for x in filled_bst.in_order()]
+    assert results == [1, 3, 4, 6, 7, 8, 10, 13, 14]
 
 
 def test_in_order_traversal_first_node_traversed_is_1(filled_bst):
