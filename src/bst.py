@@ -21,11 +21,17 @@ class BinarySearchTree(object):
     """contains(self, val): will return True if val is in the BST, False if not."""
     """balance(self): will return an integer, positive or negative that represents how well balanced the tree is. Trees which are higher on the left than the right should return a positive value, trees which are higher on the right than the left should return a negative value. An ideally-balanced tree should return 0."""
 
-    def __init__(self):
+    def __init__(self, if_iter=None):
         """Init of the Binary Search Tree class."""
         self.root = None
         self.counter = 0
         self.container = []
+        if if_iter:
+            try:
+                for value in if_iter:
+                    self.insert(value)
+            except TypeError:
+                self.insert(if_iter)
 
     def insert(self, val):
         """Take a value, inserts into Binary Search Tree at correct placement."""

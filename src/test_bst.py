@@ -3,21 +3,21 @@ from bst import BinarySearchTree
 
 
 def test_insert_5_is_root():
-    """Test the insert function."""
+    """Test the insert function inserts a root."""
     a = BinarySearchTree()
     a.insert(5)
     assert a.root
 
 
 def test_insert_5_where_root_equals_5():
-    """Test the insert funciton."""
+    """Test the insert funciton where root equals 5."""
     a = BinarySearchTree()
     a.insert(5)
     assert a.root.value == 5
 
 
 def test_insert_5_and_10_and_confirm_right():
-    """Test the insert function."""
+    """Test the insert function where right child of root is 10."""
     a = BinarySearchTree()
     a.insert(5)
     a.insert(10)
@@ -124,43 +124,45 @@ def test_search_none():
     assert a.search(100) is None
 
 
-# def test_depth_zero():
-#     """Test the depth function."""
-#     a = BinarySearchTree()
-#     assert a.depth == 0
+def test_depth_zero():
+    """Test the depth function."""
+    a = BinarySearchTree()
+    assert a.depth() == 0
 
 
-# def test_depth_one():
-#     """Test the depth function."""
-#     a = BinarySearchTree()
-#     a.insert(8)
-#     assert a.depth == 1
+def test_depth_one():
+    """Test the depth function."""
+    a = BinarySearchTree()
+    a.insert(8)
+    assert a.depth() == 1
 
 
-# def test_depth_many():
-#     """Test the depth function."""
-#     a = BinarySearchTree()
-#     a.insert(8)
-#     a.insert(10)
-#     a.insert(3)
-#     a.insert(14)
-#     a.insert(13)
-#     a.insert(1)
-#     a.insert(6)
-#     a.insert(7)
-#     a.insert(4)
-#     assert a.depth == 4
+def test_depth_many():
+    """Test the depth function."""
+    a = BinarySearchTree()
+    a.insert(8)
+    a.insert(10)
+    a.insert(3)
+    a.insert(14)
+    a.insert(13)
+    a.insert(1)
+    a.insert(6)
+    a.insert(7)
+    a.insert(4)
+    assert a.depth() == 4
 
 
-# def test_balance():
-#     """Test the balance function."""
-#     a = BinarySearchTree()
-#     a.insert(8)
-#     a.insert(10)
-#     a.insert(3)
-#     a.insert(14)
-#     a.insert(13)
-#     a.insert(1)
-#     a.insert(6)
-#     a.insert(7)
-#     assert a.balance == -1
+def test_balance():
+    """Test the balance function."""
+    a = BinarySearchTree()
+    a.insert(8)
+    a.insert(10)
+    a.insert(3)
+    a.insert(14)
+    a.insert(13)
+    a.insert(1)
+    a.insert(6)
+    a.insert(7)
+    assert a.balance() == 0
+
+
