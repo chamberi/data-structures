@@ -28,6 +28,7 @@ class BinarySearchTree(object):
     """pre_order(self): will return a generator that will return the values in the tree using pre-order traversal, one at a time."""
     """post_order(self): will return a generator that will return the values in the tree using post_order traversal, one at a time."""
     """breadth_first(self): will return a generator that will return the values in the tree using breadth-first traversal, one at a time."""
+    """delete function: removes node, readjusts tree, fixes pointers and pointees."""
 
     def __init__(self, if_iter=None):
         """Init of the Binary Search Tree class."""
@@ -326,11 +327,3 @@ class BinarySearchTree(object):
                     else:
                         vertex = vertex.left
         return
-
-
-# if __name__ == "__main__":
-
-#     res1 = timeit.repeat(stmt="depth(g)", setup="from graph import g, depth", number=10, repeat=3)
-#     res2 = timeit.repeat(stmt="breadth(g)", setup="from graph import g, breadth", number=10, repeat=3)
-#     print("Depth First: ", res1)
-#     print("Breadth First: ", res2)
