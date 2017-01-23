@@ -1,32 +1,26 @@
 #Summary
 
-The assignment was to implement a [Weighted Graph](https://codefellows.github.io/sea-python-401d5/assignments/graph_3_weighted.html)
-in Python containing the following methods:
-
-
-    * g.nodes(): return a list of all nodes in the graph
-    * g.edges(): return a list of all edges in the graph
-    * g.add_node(n): adds a new node 'n' to the graph
-    * g.add_edge(n1, n2): adds a new edge to the graph connecting 'n1' and 'n2', if either n1 or n2 are not already present in the graph, they should be added.
-    * g.del_node(n): deletes the node 'n' from the graph, raises an error if no such node exists
-    * g.del_edge(n1, n2): deletes the edge connecting 'n1' and 'n2' from the graph, raises an error if no such edge exists
-    * g.has_node(n): True if node 'n' is contained in the graph, False if not.
-    * g.neighbors(n): returns the list of all nodes connected to 'n' by edges, raises an error if n is not in g
-    * g.adjacent(n1, n2): returns True if there is an edge connecting n1 and n2, False if not, raises an error if either of the supplied nodes are not in g
-    * g.depth_first_traversal(start): Returns the path list for the entire graph with a depth first traversal.
-    * g.breadth_first_travers(start): Returns the path list for the entire graph with a breadth first traversal.
+    insert(self, val): will insert the value val into the BST. If val is already present, it will be ignored.
+    search(self, val): will return the node containing that value, else None.
+    size(self): will return the integer size of the BST (equal to the total number of values stored in the tree). It will return 0 if the tree is empty.
+    depth(self): will return an integer representing the total number of levels in the tree. If there is one value, the depth should be 1, if two values it will be 2, if three values it may be 2 or three, depending, etc.
+    contains(self, val): will return True if val is in the BST, False if not.
+    balance(self): will return an integer, positive or negative that represents how well balanced the tree is. Trees which are higher on the left than the right should return a positive value, trees which are higher on the right than the left should return a negative value. An ideally-balanced tree should return 0.
 
 
 # Coverage:
 
+15 of 15 Passing Tests:
+
 ---------- coverage: platform darwin, python 3.5.2-final-0 -----------
 
-
-| Name                     | Stmts | Miss | Cover |
-| -----------------------  | ----- | ---- | ----- |
-| weighted_graph.py        |  78   |  3   | 96%   |
-| test_weighted_graph.py   |  178  |  0   | 100%  |
-| -----------------------  |  ---  |  --  | ----  |
-| TOTAL                    |  256  |  3   | 98%   |
+Name                          Stmts   Miss  Cover   Missing
+-----------------------------------------------------------
+src/bst.py                       65     10    85%   30-34, 64, 83-85, 115
 
 
+---------- coverage: platform darwin, python 2.7.12-final-0 ----------
+
+Name                          Stmts   Miss  Cover   Missing
+-----------------------------------------------------------
+src/bst.py                       65     10    85%   30-34, 64, 83-85, 115
