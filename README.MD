@@ -1,3 +1,4 @@
+https://travis-ci.org/chamberi/data-structures.svg?branch=master
 #Summary
 
 The HashTable is a data structure that implements an
