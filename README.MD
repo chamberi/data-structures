@@ -1,4 +1,4 @@
-https://travis-ci.org/chamberi/data-structures.svg?branch=master
+[![Build Status](https://travis-ci.org/CCallahanIV/data-structures.svg?branch=master)](https://travis-ci.org/CCallahanIV/data-structures)
 #Summary
 
 The HashTable is a data structure that implements an
