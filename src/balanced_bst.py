@@ -303,8 +303,9 @@ class BinarySearchTree(object):
                 if del_node:
                     parent_of_del.right.parent = parent_of_del
                 self.counter -= 1
+                self._balance_tree()
 
-            elif val == parent_of_del.left.value:
+            elif parent_of_del.left and val == parent_of_del.left.value:
                 if not min_parent:
                     parent_of_del.left = None
                     self.counter -= 1
@@ -339,7 +340,7 @@ class BinarySearchTree(object):
                 if del_node:
                     parent_of_del.left.parent = parent_of_del
                 self.counter -= 1
-        self._balance_tree()
+                self._balance_tree()
 
     def _find_min_parent(self, vertex, side):
         """Find the parent of the replacement node, given the parent of the delete node."""
@@ -459,7 +460,7 @@ class BinarySearchTree(object):
         vertex.parent = right_sub
 
     def _right_left_rotation(self, node):
-        """Try right left rotation on node."""
+        """Right left rotation on a BST."""
         vertex = node
         right_head = node.right
         left_sub = node.right.left
@@ -506,43 +507,6 @@ class BinarySearchTree(object):
                 else:
                     yield peek_vertex
                     last_vertex = visited.pop()
-
-    # def balance(self):
-    #     """
-    #     Return an integer, positive or negative that represents how well balanced the tree is.
-
-    #     Trees which are higher on the left than the right should return a positive value,
-    #     trees which are higher on the right than the left should return a negative value.
-    #     An ideally-balanced tree should return 0.
-    #     """
-    #     if self.root is None:
-    #         return 0
-    #     return self._calc_depth(self.root.right) - self._calc_depth(self.root.left)
-
-
-    # def print_bst(self):
-    #     """Return."""
-    #     thislevel = [self.root]
-    #     while thislevel:
-    #         nextlevel = []
-    #         print_level = []
-    #         counter = 0
-    #         for n in thislevel:
-    #             print(print_level[counter])
-    #             if n.left:
-    #                 nextlevel.append(n.left)
-    #                 print_level.append(n.left.value)
-    #             else:
-    #                 print_level.append('_')
-    #             if n.right:
-    #                 nextlevel.append(n.right)
-    #                 print_level.append(n.right.value)
-    #             else:
-    #                 print_level.append('_')
-    #         print()
-    #         thislevel = nextlevel
-
-
 
 # if __name__ == "__main__":
 
