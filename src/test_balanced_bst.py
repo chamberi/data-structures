@@ -736,3 +736,103 @@ def test_bst_double_rotation_two():
     assert a.root.right.right.value == 20
     assert a.root.right.left.value == 14
     assert a.root.left.left.value == 5
+
+
+def test_right_left_rotation_on_delete():
+    """Test right-left rotation on delete of 7 node tree."""
+    a = BinarySearchTree([10, 5, 15, 2, 12, 20, 14])
+    a.delete(2)
+    assert a.root.value == 12
+    assert a.root.right.value == 15
+    assert a.root.right.right.value == 20
+    assert a.root.right.left.value == 14
+    assert a.root.left.value == 10
+    assert a.root.left.left.value == 5
+    assert not a.root.left.right
+    assert a.root.right.right.parent.value == 15
+    assert a.root.right.left.parent.value == 15
+    assert a.root.left.left.parent.value == 10
+    assert a.root.left.parent.value == 12
+    assert a.root.right.parent.value == 12
+    assert not a.root.parent
+
+
+def test_right_left_rotation_other_leg_on_delete():
+    """Test right-left rotation on delete of a different 7 node tree."""
+    a = BinarySearchTree([10, 5, 15, 2, 12, 20, 11])
+    a.delete(2)
+    assert a.root.value == 12
+    assert a.root.right.value == 15
+    assert a.root.right.right.value == 20
+    assert a.root.left.right.value == 11
+    assert a.root.left.value == 10
+    assert a.root.left.left.value == 5
+    assert not a.root.right.left
+    assert a.root.right.right.parent.value == 15
+    assert a.root.left.right.parent.value == 10
+    assert a.root.left.left.parent.value == 10
+    assert a.root.left.parent.value == 12
+    assert a.root.right.parent.value == 12
+    assert not a.root.parent
+
+
+def test_right_left_rotation_simple_on_delete():
+    """Test right-left rotation on a simple 4 node tree."""
+    a = BinarySearchTree([10, 12, 9, 11])
+    a.delete(9)
+    assert a.root.value == 11
+    assert a.root.right.value == 12
+    assert a.root.left.value == 10
+    assert a.root.right.parent.value == 11
+    assert a.root.left.parent.value == 11
+    assert not a.root.parent
+    assert not a.root.right.right
+    assert not a.root.right.left
+
+
+def test_left_right_rotation_on_delet():
+    """Test left-right rotation on delete of 7 node tree."""
+    a = BinarySearchTree([20, 10, 25, 5, 15, 27, 12])
+    a.delete(27)
+    assert a.root.value == 15
+    assert a.root.right.value == 20
+    assert a.root.left.value == 10
+    assert a.root.right.right.value == 25
+    assert a.root.left.right.value == 12
+    assert a.root.left.left.value == 5
+    assert a.root.left.right.parent.value == 10
+    assert a.root.left.left.parent.value == 10
+    assert a.root.right.right.parent.value == 20
+    assert not a.root.parent
+    assert not a.root.right.left
+
+
+def test_left_right_rotation_other_leg_on_deletion():
+    """Test left-right rotation on delete of a different 7 node tree."""
+    a = BinarySearchTree([20, 10, 25, 5, 15, 27, 17])
+    a.delete(27)
+    assert a.root.value == 15
+    assert a.root.right.value == 20
+    assert a.root.left.value == 10
+    assert a.root.right.right.value == 25
+    assert a.root.right.left.value == 17
+    assert a.root.left.left.value == 5
+    assert a.root.right.left.parent.value == 20
+    assert a.root.left.left.parent.value == 10
+    assert a.root.right.right.parent.value == 20
+    assert not a.root.parent
+    assert not a.root.left.right
+
+
+def test_left_right_rotation_simple_on_deletion():
+    """Test left-right rotation on a simple 4 node tree."""
+    a = BinarySearchTree([5, 3, 6, 4])
+    a.delete(6)
+    assert a.root.value == 4
+    assert a.root.right.value == 5
+    assert a.root.left.value == 3
+    assert not a.root.parent
+    assert not a.root.right.right
+    assert not a.root.right.left
+    assert a.root.right.parent.value == 4
+    assert a.root.left.parent.value == 4

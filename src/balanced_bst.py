@@ -268,7 +268,7 @@ class BinarySearchTree(object):
                     self._balance_tree()
                     return
 
-            if val == parent_of_del.right.value:
+            if parent_of_del.right and val == parent_of_del.right.value:
                 if not min_parent:
                     parent_of_del.right = None
                     self.counter -= 1
@@ -427,109 +427,68 @@ class BinarySearchTree(object):
             d.parent = a
 
     def _left_right_rotation(self, node):
-        """Try left right rotation on node."""
-        if self._calc_balance(node.left) > 0:
-            vertex = node
-            left_head = node.left
-            right_sub = node.left.right
-            if node.left.right.left:
-                switcher = node.left.right.left
-            if vertex.parent:
-                right_sub.parent = vertex.parent
-                if vertex.parent.value > vertex.value:
-                    vertex.parent.left = right_sub
-                else:
-                    vertex.parent.right = right_sub
-            else:
-                self.root = right_sub
-                right_sub.parent = None
-            if node.left.right.left:
-                switcher.parent = left_head
-            left_head.parent = right_sub
-            if node.left.right.left:
-                left_head.right = switcher
-            right_sub.right = vertex
-            right_sub.left = left_head
-            vertex.parent = right_sub
+        """Left right rotation on a BST."""
+        vertex = node
+        left_head = node.left
+        right_sub = node.left.right
+        if node.left.right.left:
+            switcher = node.left.right.left
+            switcher.parent = left_head
+            left_head.right = switcher
             vertex.left = None
-        else:
-            vertex = node
-            left_head = node.left
-            right_sub = node.left.right
-            if node.left.right.right:
-                switcher = node.left.right.right
-            if vertex.parent:
-                right_sub.parent = vertex.parent
-                if vertex.parent.value > vertex.value:
-                    vertex.parent.left = right_sub
-                else:
-                    vertex.parent.right = right_sub
-            else:
-                self.root = right_sub
-                right_sub.parent = None
-            if node.left.right.right:
-                switcher.parent = vertex
-            if node.left.right.right:
-                vertex.left = switcher
-            vertex.parent = right_sub
-            right_sub.right = vertex
-            right_sub.left = left_head
-            left_head.parent = right_sub
+        elif node.left.right.right:
+            switcher = node.left.right.right
+            switcher.parent = vertex
+            vertex.left = switcher
             left_head.right = None
+        else:
+            vertex.left = None
+            left_head.right = None
+        if vertex.parent:
+            right_sub.parent = vertex.parent
+            if vertex.parent.value > vertex.value:
+                vertex.parent.left = right_sub
+            else:
+                vertex.parent.right = right_sub
+        else:
+            self.root = right_sub
+            right_sub.parent = None
+        left_head.parent = right_sub
+        right_sub.right = vertex
+        right_sub.left = left_head
+        vertex.parent = right_sub
 
     def _right_left_rotation(self, node):
         """Try right left rotation on node."""
-        if self._calc_balance(node.right) < 0:
-            vertex = node
-            right_head = node.right
-            left_sub = node.right.left
-            if node.right.left.left:
-                switcher = node.right.left.left
-            if vertex.parent:
-                left_sub.parent = vertex.parent
-                if vertex.parent.value > vertex.value:
-                    vertex.parent.left = left_sub
-                else:
-                    vertex.parent.right = left_sub
-            else:
-                self.root = left_sub
-                left_sub.parent = None
-            if node.right.left.left:
-                switcher.parent = right_head
-            right_head.parent = vertex
-            right_head.left = None
-            left_sub.right = right_head
-            left_sub.left = vertex
-            vertex.parent = left_sub
-            if node.right.left.left:
-                vertex.right = switcher
-            else:
-                vertex.right = None
-        else:
-            import pdb; pdb.set_trace()
-            vertex = node
-            right_head = node.right
-            left_sub = node.right.left
-            if node.right.left.right:
-                switcher = node.right.left.right
-            if vertex.parent:
-                left_sub.parent = vertex.parent
-                if vertex.parent.value > vertex.value:
-                    vertex.parent.left = left_sub
-                else:
-                    vertex.parent.right = left_sub
-            else:
-                self.root = left_sub
-                left_sub.parent = None
-            if node.right.left.right:
-                switcher.parent = right_head
+        vertex = node
+        right_head = node.right
+        left_sub = node.right.left
+        if node.right.left.right:
+            switcher = node.right.left.right
+            switcher.parent = right_head
+            right_head.left = switcher
             vertex.right = None
-            vertex.parent = left_sub
-            left_sub.left = vertex
-            left_sub.right = right_head
-            if node.right.left.right:
-                right_head.left = switcher
-            right_head.parent = left_sub
+        elif node.right.left.left:
+            switcher = node.right.left.left
+            switcher.parent = vertex
+            vertex.right = switcher
+            right_head.left = None
+        else:
+            vertex.right = None
+            right_head.left = None
+        if vertex.parent:
+            left_sub.parent = vertex.parent
+            if vertex.parent.value > vertex.value:
+                vertex.parent.left = left_sub
+            else:
+                vertex.parent.right = left_sub
+        else:
+            self.root = left_sub
+            left_sub.parent = None
+        right_head.parent = left_sub
+        left_sub.right = right_head
+        left_sub.left = vertex
+        vertex.parent = left_sub
 
     def _post_order_node(self):
         vertex = self.root
