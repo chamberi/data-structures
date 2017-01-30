@@ -37,7 +37,7 @@ class Trie(object):
         self.root = Node('*')
         self._size = 0
 
-def insert(self, word):
+    def insert(self, word):
         """Insert method, which takes a word and inserts each letter of the word into the Trie, with pointer to next Node or $ if end."""
         node = self.root
         new_node = None
@@ -79,7 +79,7 @@ def insert(self, word):
         """The size method returns the number of words in the Trie."""
         return self._size
 
-def remove(self, word):
+    def remove(self, word):
         """The remove method removes the word from the Trie."""
         node_list = []
         node = self.root
