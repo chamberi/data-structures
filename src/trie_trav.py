@@ -37,15 +37,24 @@ class Trie(object):
         self.root = Node('*')
         self._size = 0
 
-    def insert(self, word):
-        """Insert method, which takes a word and inserts each letter of the word into the Trie, with pointer to next Node or $ if end.""" 
+def insert(self, word):
+        """Insert method, which takes a word and inserts each letter of the word into the Trie, with pointer to next Node or $ if end."""
         node = self.root
         new_node = None
         new_word = False
+        counter = 0
         for each in word:
             if each in node.nodes:
+                if counter == (len(word) - 1) and '$' not in node.nodes:
+                    new_word = True
+                    new_node = Node(each)
+                    node.nodes[each] = new_node
+                    node = new_node
+                    break
+                counter += 1
                 node = node.nodes[each]
                 continue
+            counter += 1
             new_word = True
             new_node = Node(each)
             node.nodes[each] = new_node
@@ -70,7 +79,7 @@ class Trie(object):
         """The size method returns the number of words in the Trie."""
         return self._size
 
-    def remove(self, word):
+def remove(self, word):
         """The remove method removes the word from the Trie."""
         node_list = []
         node = self.root
@@ -78,6 +87,8 @@ class Trie(object):
             if each in node.nodes:
                 node_list.append(node.nodes[each])
                 node = node.nodes[each]
+            else:
+                raise(IndexError)
         last = node_list.pop()
         if '$' not in last.nodes:
             return
@@ -93,6 +104,7 @@ class Trie(object):
                 self._size -= 1
                 break
             del last.nodes[last_val]
+        self._size -= 1
 
     def traversal(self, start=None):
         """A generator yielding values in the tree in depth first order."""
@@ -142,80 +154,3 @@ class Trie(object):
                     if len(node.nodes) == 1 and '$' in node.nodes:
                         break
                     stack.append(nodes[each])
-            # word = ''
-            # stack = []
-            # branch_node = None
-            # to_yield = False
-            # stack.append(self.root)
-            # while len(stack) > 0:
-            #     node = stack.pop()
-            #     word += node.val
-            #     if to_yield:
-            #         yield node.val
-            #     if start in word:
-            #         to_yield = True
-            #         branch_node = node
-            #     items = node.nodes.items()
-            #     items = reversed(items)
-            #     nodes = OrderedDict(items)
-            #     for each in nodes:
-            #         if len(node.nodes) == 1 and '$' in node.nodes:
-            #             break
-            #         stack.append(nodes[each])
-
-        # stack = []
-        # stack.append(self.root)
-        # while len(stack) > 0:
-        #     node = stack.pop()
-        #     if node.val != '*':
-        #         yield node.val
-        #     items = node.nodes.items()
-        #     items = reversed(items)
-        #     nodes = OrderedDict(items)
-        #     for each in nodes:
-        #         if len(node.nodes) == 1 and '$' in node.nodes:
-        #             break
-        #         stack.append(nodes[each])
-
-    # def _traversal(self, node):
-
-    #     stack = []
-    #     stack.append(node)
-    #     while len(stack) > 0:
-    #         node = stack.pop()
-    #         if node.val != '*':
-    #             yield node.val
-    #         items = node.nodes.items()
-    #         items = reversed(items)
-    #         nodes = OrderedDict(items)
-    #         for each in nodes:
-    #             if len(node.nodes) == 1 and '$' in node.nodes:
-    #                 break
-    #             stack.append(nodes[each])
-
-
-    # def traversal(self, start=None):
-    #     """The traversal method does a depth first traversal of the trie to find instances of start and return the rest."""
-    #     g = self._traversal(self.root)
-    #     yield next(g)
-
-    # def _find_start(self, start):
-    #     """Return the next instance of start string."""
-    #     pass
-
-    # def _traversal(self, node):
-    #     """Recursive helper method for traversal. Yields value at node."""
-    #     print('111111111111111111111')
-    #     import pdb; pdb.set_trace()
-    #     if len(node.nodes) == 1 and '$' in node.nodes:
-    #         print('2222222222222222222')
-    #         yield node.val
-    #         return
-    #     yield node.val
-    #     for each in node.nodes:
-    #         print('333333333333333333')
-    #         print('each', each)
-    #         print('node.nodes[each]', node.nodes[each])
-    #         print(node.nodes)
-    #         h = self._traversal(node.nodes[each])
-    #         yield next(h)
