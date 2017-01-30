@@ -110,27 +110,27 @@ class Trie(object):
                     if len(node.nodes) == 1 and '$' in node.nodes:
                         break
                     stack.append(nodes[each])
-        # else:
-        #     word = ''
-        #     stack = []
-        #     branch_node = None
-        #     to_yield = False
-        #     stack.append(self.root)
-        #     while len(stack) > 0:
-        #         node = stack.pop()
-        #         word += node.val
-        #         if to_yield:
-        #             yield node.val
-        #         if start in word:
-        #             to_yield = True
-        #             branch_node = node
-        #         items = node.nodes.items()
-        #         items = reversed(items)
-        #         nodes = OrderedDict(items)
-        #         for each in nodes:
-        #             if len(node.nodes) == 1 and '$' in node.nodes:
-        #                 break
-        #             stack.append(nodes[each])
+        else:
+            word = ''
+            stack = []
+            branch_node = None
+            to_yield = False
+            stack.append(self.root)
+            while len(stack) > 0:
+                node = stack.pop()
+                word += node.val
+                if to_yield:
+                    yield node.val
+                if start in word:
+                    to_yield = True
+                    branch_node = node
+                items = node.nodes.items()
+                items = reversed(items)
+                nodes = OrderedDict(items)
+                for each in nodes:
+                    if len(node.nodes) == 1 and '$' in node.nodes:
+                        break
+                    stack.append(nodes[each])
 
         # stack = []
         # stack.append(self.root)
@@ -146,21 +146,21 @@ class Trie(object):
         #             break
         #         stack.append(nodes[each])
 
-    def _traversal(self, node):
+    # def _traversal(self, node):
 
-        stack = []
-        stack.append(node)
-        while len(stack) > 0:
-            node = stack.pop()
-            if node.val != '*':
-                yield node.val
-            items = node.nodes.items()
-            items = reversed(items)
-            nodes = OrderedDict(items)
-            for each in nodes:
-                if len(node.nodes) == 1 and '$' in node.nodes:
-                    break
-                stack.append(nodes[each])
+    #     stack = []
+    #     stack.append(node)
+    #     while len(stack) > 0:
+    #         node = stack.pop()
+    #         if node.val != '*':
+    #             yield node.val
+    #         items = node.nodes.items()
+    #         items = reversed(items)
+    #         nodes = OrderedDict(items)
+    #         for each in nodes:
+    #             if len(node.nodes) == 1 and '$' in node.nodes:
+    #                 break
+    #             stack.append(nodes[each])
 
 
     # def traversal(self, start=None):
