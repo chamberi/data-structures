@@ -111,19 +111,30 @@ class Trie(object):
                         break
                     stack.append(nodes[each])
         else:
-            word = ''
+            compare = ''
+            index = 0
+            comparing = False
+            found = False
             stack = []
-            branch_node = None
-            to_yield = False
             stack.append(self.root)
+            # import pdb; pdb.set_trace()
             while len(stack) > 0:
                 node = stack.pop()
-                word += node.val
-                if to_yield:
+                if node.val != '*' and found:
                     yield node.val
-                if start in word:
-                    to_yield = True
-                    branch_node = node
+                if node.val == start[index]:
+                    comparing = True
+                    compare += start[index]
+                    index += 1
+                    if index == len(start):
+                        found = True
+                        comparing = False
+                        compare = ''
+                        index = 0
+                elif comparing:
+                    comparing = False
+                    compare = ''
+                    index = 0
                 items = node.nodes.items()
                 items = reversed(items)
                 nodes = OrderedDict(items)
@@ -131,6 +142,26 @@ class Trie(object):
                     if len(node.nodes) == 1 and '$' in node.nodes:
                         break
                     stack.append(nodes[each])
+            # word = ''
+            # stack = []
+            # branch_node = None
+            # to_yield = False
+            # stack.append(self.root)
+            # while len(stack) > 0:
+            #     node = stack.pop()
+            #     word += node.val
+            #     if to_yield:
+            #         yield node.val
+            #     if start in word:
+            #         to_yield = True
+            #         branch_node = node
+            #     items = node.nodes.items()
+            #     items = reversed(items)
+            #     nodes = OrderedDict(items)
+            #     for each in nodes:
+            #         if len(node.nodes) == 1 and '$' in node.nodes:
+            #             break
+            #         stack.append(nodes[each])
 
         # stack = []
         # stack.append(self.root)
