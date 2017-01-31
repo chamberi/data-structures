@@ -1,34 +1,24 @@
+[![Build Status](https://travis-ci.org/CCallahanIV/data-structures.svg?branch=master)](https://travis-ci.org/CCallahanIV/data-structures)
 #Summary
 
-The HashTable is a data structure that implements an
-assosiative array. The structure maps keys to values
-in such a way that values may be accessed in O(1) time.
-This is done through use of a hashing function.
-The hashing function maps the content of the key to
-a specific bucket. As the content of the key always
-maps to a specific hash value, the key's value may
-be accessed quickly.
-
-    - get(key) - should return the value stored with the given key
-    - set(key, val) - should store the given val using the given key
-    - _hash(key) - should hash the key provided (note that this is an internal api)
+        insert(self, string): will insert the input string into the trie. If character in the input string is already present, it will be ignored.
+        contains(self, string): will return True if the string is in the trie, False if not.
+        size(self): will return the total number of words contained within the trie. 0 if empty.
+        remove(self, string): will remove the given string from the trie. If the word does not exist, will raise an appropriate exception
 
 
 # Coverage:
 
------------------------------------------------------------
----------- coverage: platform darwin, python 2.7.12-final-0 ----------
-Name                          Stmts   Miss  Cover   Missing
------------------------------------------------------------
-src/hash_table.py                47      2    96%   54, 58
------------------------------------------------------------
----------- coverage: platform darwin, python 3.5.2-final-0 -----------
-Name                          Stmts   Miss  Cover   Missing
------------------------------------------------------------
-src/hash_table.py                47      2    96%   54, 58
------------------------------------------------------------
+test_trie.py ...........
 
-Gen Primes function used:
-Sieve of Eratosthenes
-Code by David Eppstein, UC Irvine, 28 Feb 2002
-http://code.activestate.com/recipes/117119/
+---------- coverage: platform darwin, python 2.7.12-final-0 ----------
+Name                      Stmts   Miss  Cover   Missing
+-------------------------------------------------------
+trie.py                      67      6    91%   92, 98-99, 101-103
+
+test_trie.py ...........
+
+---------- coverage: platform darwin, python 3.5.2-final-0 -----------
+Name                      Stmts   Miss  Cover   Missing
+-------------------------------------------------------
+trie.py                      67      6    91%   92, 98-99, 101-103
