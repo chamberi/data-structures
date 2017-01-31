@@ -122,6 +122,5 @@ def test_word_list_with_sorted(n, result):
 
 def test_rand_letter_sorted(rand_letter1):
     """Test if the random letter list is sorted."""
-    import pdb; pdb.set_trace()
     new_list = rand_letter1
     assert insertion_sort(new_list) == sorted(new_list)
