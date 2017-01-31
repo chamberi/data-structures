@@ -10,6 +10,11 @@
 #
 # URL:
 
+"""
+    Insertion Sort takes a list and re-orders it so that the items in the list are arranged lowest to highest.
+    Filled List fills a random number list for use in the timit function.
+"""
+
 
 def insertion_sort(isl):
     """Insertion sort method."""
