@@ -8,7 +8,7 @@
 # Authors:  Colin Lamont <https://github.com/chamberi>
 #           Ben Shields <https://github.com/iamrobinhood12345>
 #
-# URL:
+
 
 """
     Insertion Sort takes a list and re-orders it so that the items in the list are arranged lowest to highest.

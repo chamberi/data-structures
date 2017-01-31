@@ -13,7 +13,6 @@ be accessed quickly.
     - set(key, val) - should store the given val using the given key
     - _hash(key) - should hash the key provided (note that this is an internal api)
 
-
 # Coverage:
 
 -----------------------------------------------------------
