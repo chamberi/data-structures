@@ -1,53 +1,59 @@
-"""Merge Sort Module."""
+"""Merge sort module."""
 
-# MERGE SORT (MS)
-#
-# CodeFellows 401d5
-# Submission Date:
-#
-# Authors:  Colin Lamont <https://github.com/chamberi>
-#           Ben Shields <https://github.com/iamrobinhood12345>
-#
-# URL:
+"""
+
+MERGE SORT (MS)
+===============
+
+CodeFellows 401d5
+Submission Date:
+
+Authors:    Colin Lamont <https://github.com/chamberi>
+            Ben Shields <https://github.com/iamrobinhood12345>
+
+URL:    https://github.com/chamberi/data-structures/tree/merge-sort
+
+"""
 
 
-def merge_sort(msl):
+def merge_sort(sort_list):
     """Merge sort method."""
-    if len(msl) == 1 or not msl:
-        return msl
-    msl1 = msl[:int(len(msl) / 2)]
-    msl2 = msl[int(len(msl) / 2):]
+    if len(sort_list) < 2:
+        return sort_list
+    sort_list1 = sort_list[:int(len(sort_list) / 2)]
+    sort_list2 = sort_list[int(len(sort_list) / 2):]
 
-    msl1 = merge_sort(msl1)
-    msl2 = merge_sort(msl2)
+    sort_list1 = merge_sort(sort_list1)
+    sort_list2 = merge_sort(sort_list2)
 
-    def _merge(msla, mslb):
+    def _merge(a, b):
         """Merge compares the two lists and returns a sorted list from lowest to highest value.""" 
         sorted_list = []
-        while len(msla) and len(mslb):
-            if msla[0] < mslb[0]:
-                low = msla.pop(0)
+        while len(a) and len(b):
+            if a[0] < b[0]:
+                low = a[0]
+                a = a[1:]
             else:
-                low = mslb.pop(0)
+                low = b[0]
+                b = b[1:]
             sorted_list.append(low)
-        if len(msla):
-            sorted_list.extend(msla)
+        if len(a):
+            sorted_list.extend(a)
             return sorted_list
         else:
-            sorted_list.extend(mslb)
+            sorted_list.extend(b)
             return sorted_list
 
-    return _merge(msl1, msl2)
+    return _merge(sort_list1, sort_list2)
 
 
-def _random_list():
-    """Return a list of random numbers from 0 to 300 of size 150."""
+def _random_list(n):
+    """Return a list of random numbers from 0 to 300 of size n."""
     import random
     b = random
-    return b.sample(range(0, 300), 150)
+    return b.sample(range(0, 300), n)
 
-
-a = _random_list()
+a = _random_list(150)
 r = a[:]
 b = sorted(a)
 w = b[::-1]
@@ -70,9 +76,9 @@ if __name__ == "__main__":
     print("best case merge_sort_timed: " + str(best_merge_sort_timed))
     print("average: ", str(best_average_merge_sort_timed))
 
-    worst_merge_sort_timed = timeit.repeat(stmt="merge_sort(w)", setup="from merge_sort import merge_sort, w", number=1000, repeat=3)
-    worst_average_merge_sort_timed = float(sum(worst_merge_sort_timed) / len(worst_merge_sort_timed))
+    reverse_merge_sort_timed = timeit.repeat(stmt="merge_sort(w)", setup="from merge_sort import merge_sort, w", number=1000, repeat=3)
+    reverse_average_merge_sort_timed = float(sum(reverse_merge_sort_timed) / len(reverse_merge_sort_timed))
 
     print("number of runs: " + str(3))
-    print("worst case merge_sort_timed: " + str(worst_merge_sort_timed))
-    print("average: ", str(worst_average_merge_sort_timed))
+    print("reverse case merge_sort_timed: " + str(reverse_merge_sort_timed))
+    print("average: ", str(reverse_average_merge_sort_timed))
