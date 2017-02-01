@@ -3,6 +3,7 @@
 from insertion_sort import insertion_sort
 import pytest
 import random
+import string
 
 
 @pytest.fixture
@@ -23,6 +24,12 @@ def rand_list2():
     c = a.randint(0, 300)
     d = b.sample(range(0, 300), c)
     return d
+
+
+@pytest.fixture
+def rand_letter1():
+    """Choose a sequence of random letters."""
+    return [random.choice(string.ascii_letters) for x in range(10)]
 
 
 PARAMS_LIST_NO_REPEATS_NO_DECIMALS = [
@@ -63,6 +70,11 @@ WORD_PARAMS_LIST = [
     (["the", "brown", "cow", "doth", "protest", "too", "much"], ["brown", "cow", "doth", "much", "protest", "the", "too"]),
     (["sometimes", "Brown", "altoids", "look", "so", "very", "strange", "in", "town", "now"], ["Brown", "altoids", "in", "look", "now", "so", "sometimes", "strange", "town", "very"]),
     (["Big", "SMALL", "BOY", "almost", "ZOO", "SiNg"], ["BOY", "Big", "SMALL", "SiNg", "ZOO", "almost"])
+]
+
+LETTER_LIST = [
+    (["c", "v", "n", "t", "f", "b", "l", "q", "e", "p"], ["b", "c", "e", "f", "l", "n", "p", "q", "t", "v"]),
+    (["Z", "x", "R", "A", "m", "G", "j", "W", "r", "H"], ["A", "G", "H", "R", "W", "Z", "j", "m", "r", "x"]),
 ]
 
 
@@ -106,3 +118,9 @@ def test_list_decimals_and_repeats(n, result):
 def test_word_list_with_sorted(n, result):
     """Test list of words with the insertion sort."""
     assert insertion_sort(n) == result
+
+
+def test_rand_letter_sorted(rand_letter1):
+    """Test if the random letter list is sorted."""
+    new_list = rand_letter1
+    assert insertion_sort(new_list) == sorted(new_list)
