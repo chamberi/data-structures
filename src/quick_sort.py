@@ -1,17 +1,24 @@
 """Quick Sort Module."""
 
-# QUICK SORT (MS)
-#
-# CodeFellows 401d5
-# Submission Date:
-#
-# Authors:  Colin Lamont <https://github.com/chamberi>
-#           Ben Shields <https://github.com/iamrobinhood12345>
-#
-# URL:
-
 """
-quick_sort: picks a pivot, compares the rest of list next to the pivot, creates a lesser and greater list, and recursively calls quick_sort, combining the sorted lists and initial pivot at the end.
+
+QUICK SORT (MS)
+===============
+
+CodeFellows 401d5
+Submission Date:
+
+Authors:    Colin Lamont <https://github.com/chamberi>
+            Ben Shields <https://github.com/iamrobinhood12345>
+
+URL:    https://github.com/chamberi/data-structures/tree/quick-sort/src
+
+
+quick_sort():   picks a pivot, compares the rest of list next to the pivot,
+                creates a lesser and greater list, and recursively
+                calls quick_sort, combining the sorted lists and
+                initial pivot at the end.
+
 """
 
 

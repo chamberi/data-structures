@@ -1,14 +1,19 @@
 """Merge Sort Module."""
 
-# MERGE SORT (MS)
-#
-# CodeFellows 401d5
-# Submission Date:
-#
-# Authors:  Colin Lamont <https://github.com/chamberi>
-#           Ben Shields <https://github.com/iamrobinhood12345>
-#
-# URL:
+
+"""
+
+MERGE SORT (MS)
+
+CodeFellows 401d5
+Submission Date:
+
+Authors:    Colin Lamont <https://github.com/chamberi>
+            Ben Shields <https://github.com/iamrobinhood12345>
+
+URL:    https://github.com/chamberi/data-structures/tree/merge-sort
+
+"""
 
 
 def merge_sort(msl):
