@@ -12,8 +12,7 @@ merge() compares two lists and re-arranges to form a new list from lowest to hig
 _random_list() returns a list of random numbers from 0 to 300 of random size less than 300. 
 
 
-Timeit Information:
-
+## Timeit Information:
 
 number of runs: 3
 random merge_sort_timed: [0.9609010129997841, 0.9587301799992929, 0.9563081269998293]
@@ -27,6 +26,7 @@ number of runs: 3
 reverse case merge_sort_timed: [0.7388693120001335, 0.7437362410000787, 0.7331475789997057]
 average:  0.738584377333306
 
+## Tests and Coverage
 
         test_merge_sort.py ............................
 
