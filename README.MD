@@ -28,16 +28,16 @@ reverse case merge_sort_timed: [0.7388693120001335, 0.7437362410000787, 0.733147
 average:  0.738584377333306
 
 
-test_merge_sort.py ............................
+        test_merge_sort.py ............................
 
----------- coverage: platform darwin, python 2.7.12-final-0 ----------
-Name                      Stmts   Miss  Cover   Missing
--------------------------------------------------------
-merge_sort.py                58     16    72%   76-97
+        ---------- coverage: platform darwin, python 2.7.12-final-0 ----------
+        Name                      Stmts   Miss  Cover   Missing
+        -------------------------------------------------------
+        merge_sort.py                58     16    72%   76-97
 
-test_merge_sort.py ............................
+        test_merge_sort.py ............................
 
----------- coverage: platform darwin, python 3.5.2-final-0 -----------
-Name                      Stmts   Miss  Cover   Missing
--------------------------------------------------------
-merge_sort.py                58     16    72%   76-97
+        ---------- coverage: platform darwin, python 3.5.2-final-0 -----------
+        Name                      Stmts   Miss  Cover   Missing
+        -------------------------------------------------------
+        merge_sort.py                58     16    72%   76-97
