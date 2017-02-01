@@ -8,7 +8,12 @@
 # Authors:  Colin Lamont <https://github.com/chamberi>
 #           Ben Shields <https://github.com/iamrobinhood12345>
 #
-# URL:
+
+
+"""
+    Insertion Sort takes a list and re-orders it so that the items in the list are arranged lowest to highest.
+    Filled List fills a random number list for use in the timit function.
+"""
 
 
 def insertion_sort(isl):
@@ -24,7 +29,7 @@ def insertion_sort(isl):
 
 
 def _random_list():
-    """Return a list of random numbers from 0 to 300 of random size less than 300."""
+    """Return a list of random numbers from 0 to 300 of size 150."""
     import random
     b = random
     return b.sample(range(0, 300), 150)

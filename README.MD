@@ -1,43 +1,44 @@
-[![Build Status](https://travis-ci.org/chamberi/data-structures.svg?branch=master)](https://travis-ci.org/chamberi/data-structures)
+[![Build Status](https://travis-ci.org/CCallahanIV/data-structures.svg?branch=master)](https://travis-ci.org/CCallahanIV/data-structures)
 #Summary
 
-Merge Sort orders a list so that it is ascending by dividing the list into progressively smaller partitions and then merging sorted combinations of those partitions.
+Insertion Sort orders a list so that it is ascending starting from one side and progressing to the other while finding the place of the next item by replacing it until it is larger than its next neighborand smaller than its last.
 
-msl : merge sort list
+isl : insertion sort list
 
-merge_sort() divides a list into progressively smaller partitions.
+insertion_sort() orders a list so that it is ascending starting from one side and progressing to the other while finding the place of the next item by replacing it until it is larger than its next neighborand smaller than its last.
 
-merge() compares two lists and re-arranges to form a new list from lowest to highest.
+_random_list() returns a list of random numbers from 0 to 300 of size 150.
 
-_random_list() returns a list of random numbers from 0 to 300 of random size less than 300. 
-
+r is an unordered randomly filled list.
+b is an ordered list of random numbers.
+w is a reversed ordered list of random numbers.
 
 Timeit Information:
 
+number of runs: 3
+random insertion_sort_timed: [0.03814769792370498, 0.04167536704335362, 0.03940913290716708]
+average:  0.039744065958075225
 
 number of runs: 3
-random merge_sort_timed: [1.0025185380363837, 1.038343450985849, 1.0102136129280552]
-average:  1.017025200650096
+best case insertion_sort_timed: [0.03972880798391998, 0.03789641603361815, 0.03818406199570745]
+average:  0.03860309533774853
 
 number of runs: 3
-best case merge_sort_timed: [0.7397163880523294, 0.734698642976582, 0.7407603049650788]
-average:  0.7383917786646634
-number of runs: 3
-
-worst case merge_sort_timed: [0.8237005720147863, 0.8032845410052687, 0.7924857450416312]
-average:  0.806490286020562
+worst case insertion_sort_timed: [0.04407542699482292, 0.04105022503063083, 0.03949510189704597]
+average:  0.04154025130749991
 
 
-test_merge_sort.py ............................
-
----------- coverage: platform darwin, python 2.7.12-final-0 ----------
-Name                      Stmts   Miss  Cover   Missing
--------------------------------------------------------
-merge_sort.py                58     16    72%   76-97
-
-test_merge_sort.py ............................
+test_insertion_sort.py ............................
 
 ---------- coverage: platform darwin, python 3.5.2-final-0 -----------
 Name                      Stmts   Miss  Cover   Missing
 -------------------------------------------------------
-merge_sort.py                58     16    72%   76-97
+insertion_sort.py            23      6    74%   44-50
+
+test_insertion_sort.py ............................
+
+---------- coverage: platform darwin, python 2.7.12-final-0 ----------
+Name                      Stmts   Miss  Cover   Missing
+-------------------------------------------------------
+insertion_sort.py            23      6    74%   44-50
+
