@@ -1,8 +1,7 @@
-"""Quick Sort Module."""
+"""quick sort module.
 
-"""
-
-QUICK SORT (MS)
+===============
+QUICK SORT (QS)
 ===============
 
 CodeFellows 401d5
@@ -76,3 +75,47 @@ if __name__ == "__main__":
     print("number of runs: " + str(3))
     print("reversed case quick_sort_timed: " + str(reversed_quick_sort_timed))
     print("average: ", str(reversed_average_quick_sort_timed))
+
+
+# NUMPY QUICK SORT
+
+# import numpy as np
+
+
+# def quick_sort(sort_list):
+#     """Quick sort method."""
+#     sort_list = np.ma.array(sort_list)
+#     if sort_list.size < 2:
+#         return sort_list.tolist()
+#     pivot = sort_list[0]
+
+#     sort_list.mask = False
+#     sort_list.mask[0] = True
+#     sort_list1 = sort_list[sort_list < pivot]
+#     sort_list2 = sort_list[sort_list > pivot]
+
+#     sort_list1 = quick_sort(sort_list1.tolist())
+#     sort_list1.append(pivot)
+#     sort_list2 = quick_sort(sort_list2.tolist())
+#     return sort_list1 + sort_list2
+
+
+# s = [43, 52, 4, 76, 2, 77, 122, 101, 43, 52, 89, 55, 25, 76, 34, 12, 22, 97, 34]
+
+
+# if __name__ == "__main__":
+#     import timeit
+
+
+
+# ######################################################################################################
+
+#     static_quick_sort_timed = timeit.Timer(stmt="quick_sort(s)", setup="import numpy as np; from quick_sort import quick_sort, s")
+
+
+
+#     # print("number of runs: " + str(3))
+#     print(type(static_quick_sort_timed))
+#     print("static quick_sort_timed: " + str(static_quick_sort_timed))
+#     print(static_quick_sort_timed.timeit())
+#     # print("average: ", str(static_average_quick_sort_timed))
