@@ -1,4 +1,4 @@
 """Test module for Hash Table."""
 
-from hash_table import HashTable
-import pytest
+# from hash_table import HashTable
+# import pytest
