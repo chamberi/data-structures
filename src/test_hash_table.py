@@ -33,9 +33,7 @@ def colin_ben_filled_hash_table_tiny():
 
 def test_table_correct(colin_ben_filled_hash_table):
     """Testing that get works correctly."""
-    count = 0
     for line in open('/usr/share/dict/words'):
-        count += 1
         if colin_ben_filled_hash_table.get(line) != line:
             assert False
     assert True
@@ -43,7 +41,6 @@ def test_table_correct(colin_ben_filled_hash_table):
 
 def test_table_correct2(additive_filled_hash_table):
     """Testing that get works correctly."""
-    # import pdb; pdb.set_trace()
     for line in open('/usr/share/dict/words'):
         if additive_filled_hash_table.get(line) != line:
             assert False
