@@ -9,3 +9,7 @@
 #           Ben Shields <https://github.com/iamrobinhood12345>
 #
 # URL:
+
+
+class KNN(object):
+    """K Nearest Neighbor Classifier Object."""
