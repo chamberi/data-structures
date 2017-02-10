@@ -1,32 +1,38 @@
+[![Build Status](https://travis-ci.org/chamberi/data-structures.svg?branch=master)](https://travis-ci.org/chamberi/data-structures)
 #Summary
 
-The assignment was to implement a [Weighted Graph](https://codefellows.github.io/sea-python-401d5/assignments/graph_3_weighted.html)
-in Python containing the following methods:
+radix_sort: sorts numbers by their 0-9 digits first, putting them in a list from lowest to highest. Next does the same for 10s (10-99), and so forth.
+
+_random_list() returns a list of random numbers from 0 to 300 of random size less than 300. 
 
 
-    * g.nodes(): return a list of all nodes in the graph
-    * g.edges(): return a list of all edges in the graph
-    * g.add_node(n): adds a new node 'n' to the graph
-    * g.add_edge(n1, n2): adds a new edge to the graph connecting 'n1' and 'n2', if either n1 or n2 are not already present in the graph, they should be added.
-    * g.del_node(n): deletes the node 'n' from the graph, raises an error if no such node exists
-    * g.del_edge(n1, n2): deletes the edge connecting 'n1' and 'n2' from the graph, raises an error if no such edge exists
-    * g.has_node(n): True if node 'n' is contained in the graph, False if not.
-    * g.neighbors(n): returns the list of all nodes connected to 'n' by edges, raises an error if n is not in g
-    * g.adjacent(n1, n2): returns True if there is an edge connecting n1 and n2, False if not, raises an error if either of the supplied nodes are not in g
-    * g.depth_first_traversal(start): Returns the path list for the entire graph with a depth first traversal.
-    * g.breadth_first_travers(start): Returns the path list for the entire graph with a breadth first traversal.
+## Timeit Information:
+
+                number of runs: 3
+                random radix_sort_timed: [0.48798475600779057, 0.4725390509702265, 0.47569359897170216]
+                average:  0.4787391353165731
+
+                number of runs: 3
+                arranged case radix_sort_timed: [0.48790664895204827, 0.48251010198146105, 0.48216112999944016]
+                average:  0.4841926269776498
+
+                number of runs: 3
+                reversed case radix_sort_timed: [0.48425215197494254, 0.4971498280065134, 0.4777760480064899]
+                average:  0.48639267599598196
+
+## Tests and Coverage
+
+                test_radix.py ..........
+
+                ---------- coverage: platform darwin, python 2.7.12-final-0 ----------
+                Name                      Stmts   Miss  Cover   Missing
+                -------------------------------------------------------
+                radix.py                     43     16    63%   53-74
 
 
-# Coverage:
+                test_radix.py ..........
 
----------- coverage: platform darwin, python 3.5.2-final-0 -----------
-
-
-| Name                     | Stmts | Miss | Cover |
-| -----------------------  | ----- | ---- | ----- |
-| weighted_graph.py        |  78   |  3   | 96%   |
-| test_weighted_graph.py   |  178  |  0   | 100%  |
-| -----------------------  |  ---  |  --  | ----  |
-| TOTAL                    |  256  |  3   | 98%   |
-
-
+                ---------- coverage: platform darwin, python 3.5.2-final-0 -----------
+                Name                      Stmts   Miss  Cover   Missing
+                -------------------------------------------------------
+                radix.py                     43     16    63%   53-74
