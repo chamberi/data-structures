@@ -30,6 +30,7 @@ class KNN(object):
         import pdb; pdb.set_trace()
         if not k:
             k = self.k
+        win_list = []
         for eval_item in evals:        # get each set of eval
             distance_list, classes, winner = [], [], []
             counter = {}
@@ -44,7 +45,7 @@ class KNN(object):
             for i in unique_classes:
                 counter.setdefault(i, len(list(x for x in classes if x == i)))      # ? append number of classes and class to counter
             winner = sorted([(value, key) for (key, value) in counter.items()], reverse=True)
-            if winner[0][0] == winner[1][0]:
-                self.predict(evals, k=k - 1)                                            # if first 
-            else:
-                return winner[0][1]
+            # if winner[0][0] == winner[1][0]:
+            #     self.predict(evals, k=k - 1)                                            # if first 
+            win_list.append(winner[0][1])                                         # return class
+        return win_list
