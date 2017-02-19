@@ -1,38 +1,25 @@
 [![Build Status](https://travis-ci.org/chamberi/data-structures.svg?branch=master)](https://travis-ci.org/chamberi/data-structures)
 #Summary
+        
+        ## K-Nearest Neighbors
 
-radix_sort: sorts numbers by their 0-9 digits first, putting them in a list from lowest to highest. Next does the same for 10s (10-99), and so forth.
+        predict(): predicts using the neares
+        _get_winner(): finds the k closest classes, and returns the closest one to the predict function.
 
-_random_list() returns a list of random numbers from 0 to 300 of random size less than 300. 
+        ipython
+        import numpy as np
+        run knn.py
+        a = [[1.4, 0.2, 5, 3.3], [1.5, 0.2, 5.3, 3.7], [1.4, 0.2, 4.6, 3.2], [4.3, 1.3, 6.2, 2.9], [4, 1.2, 5.8, 2.6], [4.1, 1.3, 5.7, 2.8]]
+        b = [[1.4, 0.2, 5.1, 3.5, 0], [1.4, 0.2, 4.9, 3, 0], [1.3, 0.2, 4.7, 3.2, 0], [4.7, 1.4, 7, 3.2, 1], [4.5, 1.5, 6.4, 3.2, 1], [4.9, 1.5, 6.9, 3.1, 1]]
+        z = KNN(b)
+        z.predict(a) == [0, 0, 0, 1, 1, 1]
 
-
-## Timeit Information:
-
-                number of runs: 3
-                random radix_sort_timed: [0.48798475600779057, 0.4725390509702265, 0.47569359897170216]
-                average:  0.4787391353165731
-
-                number of runs: 3
-                arranged case radix_sort_timed: [0.48790664895204827, 0.48251010198146105, 0.48216112999944016]
-                average:  0.4841926269776498
-
-                number of runs: 3
-                reversed case radix_sort_timed: [0.48425215197494254, 0.4971498280065134, 0.4777760480064899]
-                average:  0.48639267599598196
 
 ## Tests and Coverage
 
-                test_radix.py ..........
-
-                ---------- coverage: platform darwin, python 2.7.12-final-0 ----------
-                Name                      Stmts   Miss  Cover   Missing
-                -------------------------------------------------------
-                radix.py                     43     16    63%   53-74
-
-
-                test_radix.py ..........
+                test_knn.py .....
 
                 ---------- coverage: platform darwin, python 3.5.2-final-0 -----------
                 Name                      Stmts   Miss  Cover   Missing
                 -------------------------------------------------------
-                radix.py                     43     16    63%   53-74
+                knn.py                       32      1    97%   54
