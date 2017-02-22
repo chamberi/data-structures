@@ -23,12 +23,10 @@ class KNN(object):
         self.data = data
         if k > len(data) or type(k) is not int or k <= 0:
             raise ValueError("The number of neighbors to predict against must be an integer greater than 0 and less than size of data.")
-        self.k = 5
+        self.k = k
 
     def predict(self, evals, k=None):
         """Predict function that compares distances."""
-        if not k:
-            k = self.k
         win = []
         for eval_item in evals:        # get each set of eval
             distance_list = []
@@ -38,7 +36,7 @@ class KNN(object):
                     squares_sum += (eval_item[item_idx] - self.data[data_idx][item_idx]) ** 2
                 distance_list.append((np.sqrt(squares_sum), self.data[data_idx][-1]))
             distance_list.sort()
-            win.append(self._get_winner(distance_list, k))
+            win.append(self._get_winner(distance_list, self.k))
         return win
 
     def _get_winner(self, distance_list, k):
