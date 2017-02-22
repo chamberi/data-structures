@@ -10,13 +10,14 @@ import numpy as np
 # Authors:  Colin Lamont <https://github.com/chamberi>
 #           Ben Shields <https://github.com/iamrobinhood12345>
 #
-# URL:
+# Methods:
+#
+#        predict(): predicts using the neares
+#        _get_winner(): finds the k closest classes, and returns the closest one to the predict function.
 
 
 class KNN(object):
     """K Nearest Neighbor Classifier Object."""
-
-    """clf.predict(self, data): returns labels for your test data."""
 
     def __init__(self, data, k=5):
         """Initialize the KNN object."""
@@ -26,7 +27,7 @@ class KNN(object):
         self.k = k
 
     def predict(self, evals, k=None):
-        """Predict function that compares distances."""
+        """Predict function that compares distances between eval data and training data."""
         win = []
         for eval_item in evals:        # get each set of eval
             distance_list = []
@@ -40,7 +41,7 @@ class KNN(object):
         return win
 
     def _get_winner(self, distance_list, k):
-        """Generate the top classes and the majority closest class."""
+        """Generate the top classes and the majority closest class to pass back to the predict method."""
         classes, winner = [], []
         counter = {}
         classes = [instance[1] for instance in distance_list[:k]]
@@ -48,6 +49,6 @@ class KNN(object):
         for i in unique_classes:
             counter.setdefault(i, len(list(x for x in classes if x == i)))
         winner = sorted([(value, key) for (key, value) in counter.items()], reverse=True)
-        if winner[0][0] == winner[1][0]:
+        if len(winner) > 1 and winner[0][0] == winner[1][0]:
             self._get_winner(distance_list, k=k - 1)
         return winner[0][1]
