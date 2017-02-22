@@ -16,16 +16,16 @@
 """
 
 
-def insertion_sort(isl):
+def insertion_sort(list):
     """Insertion sort method."""
-    for item in range(len(isl)):
-        x = isl[item]
+    for item in range(len(list)):
+        x = list[item]
         neighbor = item - 1
-        while neighbor >= 0 and isl[neighbor] > x:
-            isl[neighbor + 1] = isl[neighbor]
+        while neighbor >= 0 and list[neighbor] > x:
+            list[neighbor + 1] = list[neighbor]
             neighbor -= 1
-        isl[neighbor + 1] = x
-    return isl
+        list[neighbor + 1] = x
+    return list
 
 
 def _random_list():
